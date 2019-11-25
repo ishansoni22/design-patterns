@@ -1,5 +1,7 @@
 package application;
 
+import com.ishan.java.designpatterns.observer.right.CurrentConditionsDisplay;
+import com.ishan.java.designpatterns.observer.right.WeatherData;
 import com.ishan.java.designpatterns.strategic.right.CannotFlyBehaviour;
 import com.ishan.java.designpatterns.strategic.right.FlyBehaviour;
 import com.ishan.java.designpatterns.strategic.right.MallardDuck;
@@ -32,6 +34,20 @@ public class DesignPatternsApplication {
     rightDuck2.display();
     rightDuck2.swim();
     rightDuck2.fly();
+
+    /**
+     CurrentConditionsDisplay currentConditionsDisplay = new CurrentConditionsDisplay();
+     WeatherData weatherData = new WeatherData();
+     weatherData.addObserver(currentConditionsDisplay);
+     weatherData.setMeasurements(100F, 50F, 2.5F);
+     weatherData.removeObserver(currentConditionsDisplay);
+     weatherData.setMeasurements(150F, 40F, 4.5F);
+     *
+     */
+
+    WeatherData weatherData = new WeatherData();
+    CurrentConditionsDisplay currentConditionsDisplay = new CurrentConditionsDisplay(weatherData);
+    weatherData.setMeasurements(100F, 50F, 2.5F);
 
   }
 
