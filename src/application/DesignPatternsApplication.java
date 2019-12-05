@@ -1,5 +1,10 @@
 package application;
 
+import com.ishan.java.designpatterns.decorator.right.Beverage;
+import com.ishan.java.designpatterns.decorator.right.Mocha;
+import com.ishan.java.designpatterns.decorator.right.WhippedMilk;
+import com.ishan.java.designpatterns.decorator.wrong1.EspressoWithMochaAndWhippedMilk;
+import com.ishan.java.designpatterns.decorator.wrong2.Espresso;
 import com.ishan.java.designpatterns.observer.right.CurrentConditionsDisplay;
 import com.ishan.java.designpatterns.observer.right.WeatherData;
 import com.ishan.java.designpatterns.strategic.right.CannotFlyBehaviour;
@@ -35,6 +40,11 @@ public class DesignPatternsApplication {
     rightDuck2.swim();
     rightDuck2.fly();
 
+
+    /**
+     * Observer Design Pattern
+     */
+
     /**
      CurrentConditionsDisplay currentConditionsDisplay = new CurrentConditionsDisplay();
      WeatherData weatherData = new WeatherData();
@@ -48,6 +58,22 @@ public class DesignPatternsApplication {
     WeatherData weatherData = new WeatherData();
     CurrentConditionsDisplay currentConditionsDisplay = new CurrentConditionsDisplay(weatherData);
     weatherData.setMeasurements(100F, 50F, 2.5F);
+
+    /**
+     * Decorator Design Pattern
+     */
+    EspressoWithMochaAndWhippedMilk emw = new EspressoWithMochaAndWhippedMilk();
+    System.out.println(emw.cost());
+
+    Espresso espresso = new Espresso(true, true);
+    System.out.println(espresso.cost());
+
+    // We will study later how to use builder pattern with the decorator pattern
+    Beverage newEspresso = new com.ishan.java.designpatterns.decorator.right.Espresso();
+    newEspresso = new Mocha(newEspresso);
+    newEspresso = new WhippedMilk(newEspresso);
+    System.out.println(newEspresso.getDescription());
+    System.out.println(newEspresso.cost());
 
   }
 
