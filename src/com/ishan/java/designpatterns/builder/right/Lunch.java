@@ -18,6 +18,11 @@ public class Lunch {
     this.dessert = dessert;
   }
 
+  // -- or --
+  private Lunch(Builder builder) {
+
+  }
+
   public static class Builder {
     private String bread;
     private String condiments;
